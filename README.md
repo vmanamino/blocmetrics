@@ -13,7 +13,7 @@ This application provides an analytics service which:
 
 * Deployment on Heroku
 
-**Configuration**
+* See __application.example.yml__ for environment variables
 
 **Database**
 
