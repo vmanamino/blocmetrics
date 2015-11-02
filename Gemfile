@@ -66,4 +66,7 @@ end
 # haml for cleaner mark-up
 gem 'haml', '~> 4.0.5'
 gem 'faker'
+# Authentication
 gem 'devise'
+# Manage sensitive data
+gem 'figaro', '1.0'
