@@ -48,6 +48,8 @@ group :test do
   gem 'shoulda-matchers', '~> 3.0.0.alpha'
   # use FactoryGirls for rspec tests
   gem 'factory_girl_rails', '~> 4.0'
+  # rspec coverage of code
+  gem 'simplecov', require: false
 end
 
 group :development, :test do
