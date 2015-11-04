@@ -44,7 +44,6 @@ end
 group :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara', '~> 2.3.0'
-  gem 'stripe-ruby-mock', '~> 2.1.1', require: 'stripe_mock'
   gem 'shoulda-matchers', '~> 3.0.0.alpha'
   # use FactoryGirls for rspec tests
   gem 'factory_girl_rails', '~> 4.0'
@@ -64,11 +63,16 @@ group :development, :test do
 
   # Rubocop checks my code for style and convention violations
   gem 'rubocop', require: false
+
+  gem 'pry-rails'
 end
 
 # haml for cleaner mark-up
 gem 'haml', '~> 4.0.5'
+# seed the database
 gem 'faker'
+# pundit for authorization
+gem 'pundit'
 # Authentication
 gem 'devise'
 # Manage sensitive data

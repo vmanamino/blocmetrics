@@ -1,0 +1,6 @@
+%h1 Registered Applications
+- @registered_applications.each do |app|
+  .media
+    .media-body
+      .media-heading
+        %p= link_to app.name, app

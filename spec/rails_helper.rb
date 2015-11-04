@@ -6,6 +6,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'shoulda/matchers'
 require 'simplecov'
 SimpleCov.start 'rails'
 puts 'required simplecov'
@@ -55,4 +56,11 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  Shoulda::Matchers.configure do |con|
+    con.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end
