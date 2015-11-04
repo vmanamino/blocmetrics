@@ -1,0 +1,8 @@
+.row
+  .col-md-4
+    %p Register your application
+    %ul
+      %li Provide the name of your application
+      %li Provide its URL
+  .col-md-8
+    = render partial: 'registered_applications/form', locals: { registered_application: @registered_application }
