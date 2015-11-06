@@ -5,4 +5,5 @@ class RegisteredApplication < ActiveRecord::Base
 
   validates :name, presence: true
   validates :url, presence: true
+  validates :url, uniqueness: true
 end

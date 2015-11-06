@@ -26,6 +26,18 @@ class RegisteredApplicationsController < ApplicationController
     end
   end
 
+  def destroy
+    registered_application = RegisteredApplication.find(params[:id])
+    authorize registered_application
+    if registered_application.destroy
+      flash[:notice] = 'Your application is no longer registered.'
+      redirect_to registered_applications_path
+    else
+      flash[:error] = 'Your application is still registered'
+      render :show
+    end
+  end
+
   private
 
   def app_params

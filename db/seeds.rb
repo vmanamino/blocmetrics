@@ -13,10 +13,12 @@ end
 users = User.all
 
 # create registered applications
+counter = 0
 10.times do
+  counter += 1
   app = RegisteredApplication.create!(
     name: Faker::Lorem.sentence,
-    url: 'http://nowhere.com',
+    url: "http://nowhere#{counter}.com",
     user: users.sample
     )
 end
