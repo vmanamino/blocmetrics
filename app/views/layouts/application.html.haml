@@ -11,6 +11,8 @@
       %ul.nav.nav-tabs
         %li= link_to "Blocmetrics", root_path
         %li= link_to "About", about_path
+        - if current_user && !current_page?(controller: 'registered_applications', action: 'index')
+          %li= link_to 'My applications', registered_applications_path
         .pull-right.user-info
           - if current_user
             Hello

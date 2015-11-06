@@ -24,7 +24,7 @@ describe 'Sign in flow' do
         expect(page).to have_content('Hello')
         find_link('Sign out').visible?
       end
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(registered_applications_path)
     end
   end
   context 'failed sign in' do
@@ -45,6 +45,7 @@ describe 'Sign in flow' do
         within('.user-info') do
           find_link('Sign In').visible?
         end
+        expect(current_path).to eq(new_user_session_path)
       end
     end
     context 'Invalid Password' do
@@ -64,6 +65,7 @@ describe 'Sign in flow' do
         within('.user-info') do
           find_link('Sign In').visible?
         end
+        expect(current_path).to eq(new_user_session_path)
       end
     end
   end

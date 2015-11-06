@@ -1,0 +1,8 @@
+%h1 Registered Applications
+- if policy(RegisteredApplication.new).create?
+  = link_to 'Register Application', new_registered_application_path, class: 'btn btn-success'
+- @registered_applications.each do |app|
+  .media
+    .media-body
+      .media-heading
+        %p= link_to app.name, app
