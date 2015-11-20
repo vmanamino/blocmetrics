@@ -5,7 +5,7 @@ require 'faker'
   user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::Lorem.characters(10)
+    password: 'password'
   )
   user.skip_confirmation!
   user.save!
@@ -22,7 +22,16 @@ counter = 0
     user: users.sample
     )
 end
+registered_apps = RegisteredApplication.all
+
+20.times do
+  event = Event.create!(
+    name: Faker::Name.name,
+    registered_application: registered_apps.sample
+    )
+end
 
 puts 'Seeding finished'
 puts "#{User.count} users created"
 puts "#{RegisteredApplication.count} registered applications created"
+puts "#{Event.count} events created"
