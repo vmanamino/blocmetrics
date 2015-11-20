@@ -1,4 +1,12 @@
 %h1= @registered_application.name
 %p= link_to @registered_application.url
+%h3 Events
+- @events.each do |key, value|
+  .media
+    .media-body
+      .media-heading
+        %tr
+          %td= key
+          %td= value
 - if policy(@registered_application).destroy?
   = link_to 'Unregister', @registered_application, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to unregister your app?' }
