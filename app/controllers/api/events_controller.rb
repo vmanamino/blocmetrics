@@ -14,7 +14,7 @@ class API::EventsController < ApplicationController
     if event.save
       render json: event, status: :created
     else
-      render event.errors, status: :unprocessable_entity
+      render json: { errors: event.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
