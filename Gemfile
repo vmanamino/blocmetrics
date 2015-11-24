@@ -79,3 +79,5 @@ gem 'pundit'
 gem 'devise'
 # Manage sensitive data
 gem 'figaro', '1.0'
+# cross domain requests
+gem 'rack-cors', :require => 'rack/cors'
