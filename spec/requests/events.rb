@@ -42,6 +42,10 @@ RSpec.describe API::EventsController, type: :request do
         post "/api/events", { name: 'miss' }, { 'HTTP_ORIGIN' => 'nowear.com' }
         expect(response.status).to eq(422)
       end
+      it 'responds with appropriate message' do
+        post "/api/events", { name: 'miss' }, { 'HTTP_ORIGIN' => 'nowear.com' }
+        expect(response_in_json['errors'][0]).to eq('Registered application missing')
+      end
     end
   end
 end

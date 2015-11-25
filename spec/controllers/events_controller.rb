@@ -46,12 +46,16 @@ RSpec.describe API::EventsController, type: :controller do
         request.env['HTTP_ORIGIN'] = 'nowear.com'
       end
       it 'responds with status unprocessable entity' do
-        post :create, name: 'score'
+        post :create, name: 'miss'
         expect(response).to have_http_status(:unprocessable_entity)
       end
       it 'responds with 422' do
-        post :create, name: 'score'
+        post :create, name: 'miss'
         expect(response.status).to eq(422)
+      end
+      it 'responds with appropriate message' do
+        post :create, name: 'miss'
+        expect(response_in_json['errors'][0]).to eq('Registered application missing')
       end
     end
   end
