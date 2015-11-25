@@ -14,7 +14,6 @@ class API::EventsController < ApplicationController
     if event.save
       render json: event, status: :created
     else
-      binding.pry
       render json: { errors: event.errors.full_messages }, status: :unprocessable_entity
     end
   end
