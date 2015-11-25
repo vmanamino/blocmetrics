@@ -1,12 +1,6 @@
-class API::EventsController < ApplicationController
+class API::EventsController < ApplicationController # rubocop:disable Style/ClassAndModuleChildren
   skip_before_action :verify_authenticity_token
-  before_filter :set_access_control_headers
-
-  def set_access_control_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
-    headers['Access-Control-Allow-Headers'] = 'Content-Type'
-  end
+  before_action :set_access_control_headers
 
   def create
     event = Event.create(event_params)
@@ -22,5 +16,11 @@ class API::EventsController < ApplicationController
 
   def event_params
     params.permit(:name)
+  end
+
+  def set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Content-Type'
   end
 end

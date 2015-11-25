@@ -15,10 +15,68 @@ This application provides an analytics service which:
 
 * See __application.example.yml__ for environment variables
 
-**Database**
+Use the following JavaScript in the Rails application whose events you want to track
+placing it in the app/assets/javascripts/application.js file:
+
+    var blocmetrics = {};
+
+    blocmetrics.report = function(eventName){
+      var event = { name: eventName };
+
+      var request = new XMLHttpRequest();
+      // the http path is an example, use production path
+      request.open("POST", "http://localhost:3000/api/events", true);
+      request.setRequestHeader('Content-Type', 'application/json');
+
+      request.send(JSON.stringify(event));
+    }
+
+This is an example of JavaScript to track specific events of your app; 
+include such script in same file as above:
+
+    window.onload = init;
+
+    function init() {
+      var topics = document.getElementById("topics");
+      topics.onclick = topicviews;
+    };
+
+    function topicviews(){
+      blocmetrics.report('topics views');
+    };
+
+You may need to include one or another of the following configurations for your Blocmetrics app event tracking.
+
+In your _config.ru_ include:
+
+    use Rack::Cors do
+      allow do
+        # regular expressions can be used here
+        origins '*'
+
+        # headers to expose
+        resource '/api/events', :headers => :any, :methods => [:get, :post, :options]
+      end
+      allow do
+        origins '*'
+        resource '/api/events', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+
+OR, in your config/application.rb file include within:
+
+    class Application < Rails::Application
+
+the following configuration for Blocmetrics:
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins '*'
+        resource '/api/events', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
 
 
-**Database initialization**
 
 * Testing via RSpec
 
