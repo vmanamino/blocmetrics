@@ -1,6 +1,6 @@
-class API::EventsController < ApplicationController
+class API::EventsController < ApplicationController # rubocop:disable Style/ClassAndModuleChildren
   skip_before_action :verify_authenticity_token
-  before_filter :set_access_control_headers
+  before_action :set_access_control_headers
 
   def create
     event = Event.create(event_params)

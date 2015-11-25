@@ -1,6 +1,6 @@
 require 'rails_helper'
 include Devise::TestHelpers
-include JSON_helper
+include JSONhelper
 
 RSpec.describe API::EventsController, type: :controller do
   let(:user) { create(:user) }
@@ -60,4 +60,3 @@ RSpec.describe API::EventsController, type: :controller do
     end
   end
 end
-

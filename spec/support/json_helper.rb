@@ -1,4 +1,4 @@
-module JSON_helper
+module JSONhelper
   def response_in_json
     # binding.pry
     JSON.parse(response.body)
