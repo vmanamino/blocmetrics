@@ -6,7 +6,6 @@ class API::EventsController < ApplicationController
     headers['Access-Control-Allow-Origin'] = '*'
     headers['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS'
     headers['Access-Control-Allow-Headers'] = 'Content-Type'
-#     headers['Access-Control-Allow-Headers'] = 'Accept'
   end
 
   def create
