@@ -45,11 +45,7 @@ include such script in same file as above:
       blocmetrics.report('topics views');
     };
 
-Additionally, install the rack-cors gem in your Blocmetrics.
-
-    gem 'rack-cors', :require => 'rack/cors'
-
-Include at least one of the following configurations for Blocmetrics app event tracking.
+You may need to include one or another of the following configurations for your Blocmetrics app event tracking.
 
 In your _config.ru_ include:
 
