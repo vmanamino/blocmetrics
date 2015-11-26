@@ -1,8 +1,12 @@
 %h1= @registered_application.name
 %p= link_to @registered_application.url
 %h3 Events
-= javascript_include_tag "http://github.highcharts.com/master/highcharts.src.js", "chartkick"
-= pie_chart @registered_application.events.group(:name).count
-= line_chart @registered_application.events.group_by_day(:created_at)
+- @events.each do |key, value|
+  .media
+    .media-body
+      .media-heading
+        %tr
+          %td= key
+          %td= value
 - if policy(@registered_application).destroy?
   = link_to 'Unregister', @registered_application, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to unregister your app?' }
