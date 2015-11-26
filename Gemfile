@@ -39,7 +39,6 @@ end
 # in dev use sqlite3 for active record
 group :development do
   gem 'sqlite3'
-  gem 'pry-rails'
 end
 
 group :test do
@@ -50,7 +49,6 @@ group :test do
   gem 'factory_girl_rails', '~> 4.0'
   # rspec coverage of code
   gem 'simplecov', require: false
-  gem 'pry-rails'
 end
 
 group :development, :test do
@@ -66,6 +64,7 @@ group :development, :test do
   # Rubocop checks my code for style and convention violations
   gem 'rubocop', require: false
 
+  # check output in response and by using related methods
   gem 'pry-rails'
 end
 

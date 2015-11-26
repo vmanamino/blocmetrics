@@ -55,7 +55,7 @@ RSpec.describe API::EventsController, type: :controller do
       end
       it 'responds with appropriate message' do
         post :create, name: 'miss'
-        expect(response_in_json['errors'][0]).to eq('Registered application missing')
+        expect(response_in_json['errors'][0]).to eq("Registered application can\'t be blank")
       end
     end
   end
