@@ -82,7 +82,7 @@ gem 'figaro', '1.0'
 # cross domain requests
 gem 'rack-cors', require: 'rack/cors'
 # chart events
-gem "chartkick"
+gem 'chartkick'
 # chart events over time
 gem 'groupdate'
 # in development chart events over time using this
